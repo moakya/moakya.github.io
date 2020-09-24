@@ -13,12 +13,21 @@ import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import './App.css';
 
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+        margin: theme.spacing(1.5),
+    },
+}))
+
 function App() {
 
   const [emailFlag, setEmailFlag] = React.useState(true)
   const [openAbout, setOpenAbout] = React.useState(false)
   const [openServices, setOpenServices] = React.useState(false)
   const [openContactForm, setOpenContactForm] = React.useState(false)
+  const classes = useStyles()
 
   function handleAboutClose(){
     setOpenAbout(false)
@@ -48,10 +57,10 @@ function App() {
     <React.Fragment>
       <div>
         <div className="Socials">
-          <div hidden={emailFlag}>
+          <div hidden={emailFlag} className={classes.formControl}>
             <TextField
               id="outlined-read-only-input"
-              label="Email"
+              // label="Email"
               size="small"
               defaultValue="test@test.com"
               InputProps={{
@@ -120,9 +129,6 @@ function App() {
               Contact Us
             </Button>
           </header>
-          <div className="Signature">
-            Desinged with <span role="img" aria-label="heart">❤️</span> in Minnesota
-          </div>
         </div>
 
         <Dialog
