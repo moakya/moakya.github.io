@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/moakya.github.io/static/css/main.6ad4d55f.chunk.css",
-    "main.js": "/moakya.github.io/static/js/main.7f77bed1.chunk.js",
-    "main.js.map": "/moakya.github.io/static/js/main.7f77bed1.chunk.js.map",
-    "runtime-main.js": "/moakya.github.io/static/js/runtime-main.d4da6692.js",
-    "runtime-main.js.map": "/moakya.github.io/static/js/runtime-main.d4da6692.js.map",
-    "static/js/2.596bc2ff.chunk.js": "/moakya.github.io/static/js/2.596bc2ff.chunk.js",
-    "static/js/2.596bc2ff.chunk.js.map": "/moakya.github.io/static/js/2.596bc2ff.chunk.js.map",
-    "index.html": "/moakya.github.io/index.html",
-    "precache-manifest.b2747fbd09535492dacd743b3799ec22.js": "/moakya.github.io/precache-manifest.b2747fbd09535492dacd743b3799ec22.js",
-    "service-worker.js": "/moakya.github.io/service-worker.js",
-    "static/css/main.6ad4d55f.chunk.css.map": "/moakya.github.io/static/css/main.6ad4d55f.chunk.css.map",
-    "static/js/2.596bc2ff.chunk.js.LICENSE.txt": "/moakya.github.io/static/js/2.596bc2ff.chunk.js.LICENSE.txt",
-    "static/media/handshake.svg": "/moakya.github.io/static/media/handshake.5175131e.svg"
+    "main.css": "/static/css/main.6ad4d55f.chunk.css",
+    "main.js": "/static/js/main.cbdb6a54.chunk.js",
+    "main.js.map": "/static/js/main.cbdb6a54.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8971bd07.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8971bd07.js.map",
+    "static/js/2.596bc2ff.chunk.js": "/static/js/2.596bc2ff.chunk.js",
+    "static/js/2.596bc2ff.chunk.js.map": "/static/js/2.596bc2ff.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.f0f64cb9bd962c56a60ee608195053b8.js": "/precache-manifest.f0f64cb9bd962c56a60ee608195053b8.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.6ad4d55f.chunk.css.map": "/static/css/main.6ad4d55f.chunk.css.map",
+    "static/js/2.596bc2ff.chunk.js.LICENSE.txt": "/static/js/2.596bc2ff.chunk.js.LICENSE.txt",
+    "static/media/handshake.svg": "/static/media/handshake.5175131e.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d4da6692.js",
+    "static/js/runtime-main.8971bd07.js",
     "static/js/2.596bc2ff.chunk.js",
     "static/css/main.6ad4d55f.chunk.css",
-    "static/js/main.7f77bed1.chunk.js"
+    "static/js/main.cbdb6a54.chunk.js"
   ]
 }
