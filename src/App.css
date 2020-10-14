@@ -1,9 +1,14 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Roboto&family=Secular+One&display=swap');
+
+.Background {
+  background-image: url(./calculator.jpg);
+  background-size: cover;
+  background-color: white;
+  min-height: 100vh;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 15vmin;
   pointer-events: none;
 }
 
@@ -13,31 +18,69 @@
   }
 }
 
-.Main-header {
-  background-color: #ebedf0;
-  /* min-height: 2vh; */
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* align-items: center;
-  justify-content: space-around; */
-  margin-left: 10px;
-  font-variant: small-caps;
-  font-size: calc(20px + 2vmin);
-}
-
 .App-header {
-  background-color: #ebedf0;
-  min-height: 94vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: left;
+  margin-left: 3vh;
+  color: black;
+  font-family: 'Heebo', sans-serif;
+  font-variant: small-caps;
+  font-size: calc(27px + 2vmin);
+}
+
+.Buttons-header {
+  margin-left: 54vh; 
+  display: flex;
+  flex-direction: row;
+}
+
+.Button {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: 'Secular One', sans-serif;
+}
+
+.ContentHeader {
+  display: flex;
+  margin-top: 23vh;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-variant: small-caps;
+  font-size: calc(27px + 2vmin);
+  color: white;
+}
+
+.SubcontentHeader {
+  display: flex;
+  margin-top: 1vh;
+  margin-left: 15vh;
+  margin-right: 15vh;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
   font-size: calc(10px + 2vmin);
+  text-align: center;
+  color: white;
+}
+
+.ContentButton {
+  /* margin-left: 5px;
+  margin-right: 5px;
+  font-family: 'Secular One', sans-serif; */
+  display: flex;
+  margin-top: 1vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .Socials {
   min-height: 5vh;
-  background-color: #ebedf0;
+  margin-top:28vh;
+  margin-right: 2vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

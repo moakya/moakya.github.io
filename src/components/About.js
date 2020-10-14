@@ -33,9 +33,9 @@ const About = (props) => {
             </DialogTitle>
             <DialogContent>
                 <div>
-                    <p>
+                    {/* <p>
                         Friends Accounting Services has been providing trusted and certified accounting services that meet a wide range of corporate and personal business needs in the UK.
-                    </p>
+                    </p> */}
                     <p>
                         We are here to handle all of your bookkeeping, taxation and payroll demands; so that you can keep focusing on your core priorities both within business and your personal life.
                     </p>
