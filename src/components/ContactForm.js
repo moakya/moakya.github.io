@@ -42,7 +42,7 @@ const ContactForm = (props) => {
     const [invalidEmailFlag, setInvalidEmailFlag] = React.useState(false)
 
     const classes = useStyles()
-    const sendFormUrl = "https://whispering-ridge-38836.herokuapp.com/mail"
+    const sendFormUrl = 'https://whispering-ridge-38836.herokuapp.com/mail'
 
     const postForm = async () => {
         let headers = {
