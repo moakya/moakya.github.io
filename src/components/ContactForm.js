@@ -35,11 +35,19 @@ const ContactForm = (props) => {
     }
 
     const [contactForm, setContactForm] = React.useState(initialForm)
+    
     // eslint-disable-next-line
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/;
-
     const [invalidEmailError, setInvalidEmailError] = React.useState('')
-    const [invalidEmailFlag, setInvalidEmailFlag] = React.useState(false)
+    const [invalidEmailFlag, setInvalidEmailFlag] = React.useState(true)
+
+    const nameRegex = /.*\S.*/;
+    const [invalidNameError, setInvalidNameError] = React.useState('')
+    const [invalidNameFlag, setInvalidNameFlag] = React.useState(true)
+
+    const messageRegex = /.*\S.*/;
+    const [invalidMessageError, setInvalidMessageError] = React.useState('')
+    const [invalidMessageFlag, setInvalidMessageFlag] = React.useState(true)
 
     const classes = useStyles()
     const sendFormUrl = 'https://whispering-ridge-38836.herokuapp.com/mail'
@@ -48,20 +56,19 @@ const ContactForm = (props) => {
         let headers = {
             'Content-Type': 'application/json'
         }
-        console.log('ContactForm %o', contactForm)
+        // console.log('ContactForm %o', contactForm)
         await axios
             .post(sendFormUrl, contactForm, { headers: headers })
             .then((response) => {
-                console.log('Status %o', response)
+                // console.log('Status %o', response)
                 handleClose()
             })
             .catch((error) => {
-                console.log('post form error %o', error)
+                console.log('post form error! contact Admin')
             })
     }
 
     const onEmailChange = () => {
-        console.log(contactForm.email)
         if(emailRegex.test(contactForm.email)){
             setInvalidEmailFlag(false)
             setInvalidEmailError('')
@@ -72,12 +79,42 @@ const ContactForm = (props) => {
         }
     }
 
+    const onNameChange = () => {
+        if(nameRegex.test(contactForm.name)){
+            setInvalidNameFlag(false)
+            setInvalidNameError('')
+        }
+        else{
+            setInvalidNameError('Please enter a name')
+            setInvalidNameFlag(true)
+        }
+    }
+
+    const onMessageChange = () => {
+        if(messageRegex.test(contactForm.message)){
+            setInvalidMessageFlag(false)
+            setInvalidMessageError('')
+        }
+        else{
+            setInvalidMessageError('Please enter a message')
+            setInvalidMessageFlag(true)
+        }
+    }
+
     const handleSetContactFormRequest = event => {
         setContactForm({
             ...contactForm,
             [event.target.name]: event.target.value
         })
-        onEmailChange(event)
+        switch(event.target.name){
+            case 'email': onEmailChange(event)
+                break;
+            case 'name': onNameChange(event)
+                break;
+            case 'message': onMessageChange(event)
+                break;
+            default: break;
+        }
     }
 
     return (
@@ -85,64 +122,67 @@ const ContactForm = (props) => {
             <DialogTitle>
                 Contact Us
             </DialogTitle>
-            <form autoComplete="off" onSubmit={e => postForm()}>
-                <div className={classes.container}>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <TextField
-                            required id="name" name="name" label="Name" 
-                            value={contactForm.name} variant="outlined"
-                            onChange={handleSetContactFormRequest}
-                        />
-                    </FormControl>
+            <div className={classes.container}>
+                <FormControl component="fieldset" className={classes.formControl}>
+                    <TextField
+                        required id="name" name="name" label="Name" 
+                        error={invalidNameFlag}
+                        helperText={invalidNameError}
+                        value={contactForm.name} variant="outlined"
+                        onChange={handleSetContactFormRequest}
+                    />
+                </FormControl>
 
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <TextField 
-                            required id="email" name="email" label="Email" 
-                            error={invalidEmailFlag}
-                            helperText={invalidEmailError}
-                            value={contactForm.email} variant="outlined"
-                            onChange={e => {
-                                handleSetContactFormRequest(e)
-                                onEmailChange(e)
-                            }}
-                        />
-                    </FormControl>
+                <FormControl component="fieldset" className={classes.formControl}>
+                    <TextField 
+                        required id="email" name="email" label="Email" 
+                        error={invalidEmailFlag}
+                        helperText={invalidEmailError}
+                        value={contactForm.email} variant="outlined"
+                        onChange={e => {
+                            handleSetContactFormRequest(e)
+                            onEmailChange(e)
+                        }}
+                    />
+                </FormControl>
 
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <TextField 
-                            id="phoneNumber" name="phoneNumber" label="Phone Number" 
-                            value={contactForm.phoneNumber} variant="outlined"
-                            onChange={handleSetContactFormRequest}
-                        />
-                    </FormControl>
+                <FormControl component="fieldset" className={classes.formControl}>
+                    <TextField 
+                        id="phoneNumber" name="phoneNumber" label="Phone Number" 
+                        value={contactForm.phoneNumber} variant="outlined"
+                        onChange={handleSetContactFormRequest}
+                    />
+                </FormControl>
 
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <TextField
-                            id="message"
-                            required
-                            label="Message"
-                            name="message"
-                            value={contactForm.message}
-                            multiline
-                            rows={12}
-                            variant="outlined"
-                            onChange={handleSetContactFormRequest}
-                        />
-                    </FormControl>
-                </div>
-                <div className={classes.button}>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <Button disabled={invalidEmailFlag} variant="outlined" type="submit" color="primary">
-                            Submit
-                        </Button>
-                    </FormControl>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <Button variant="outlined" onClick={e => handleClose()} color="secondary">
-                            Close
-                        </Button>
-                    </FormControl>
-                </div>
-            </form>
+                <FormControl component="fieldset" className={classes.formControl}>
+                    <TextField
+                        id="message"
+                        required
+                        label="Message"
+                        name="message"
+                        error={invalidMessageFlag}
+                        helperText={invalidMessageError}
+                        value={contactForm.message}
+                        multiline
+                        rows={12}
+                        variant="outlined"
+                        onChange={handleSetContactFormRequest}
+                    />
+                </FormControl>
+            </div>
+            <div className={classes.button}>
+                <FormControl component="fieldset" className={classes.formControl}>
+                    <Button disabled={invalidEmailFlag || invalidMessageFlag || invalidNameFlag} 
+                    variant="outlined" onClick={postForm} color="primary">
+                        Submit
+                    </Button>
+                </FormControl>
+                <FormControl component="fieldset" className={classes.formControl}>
+                    <Button variant="outlined" onClick={e => handleClose()} color="secondary">
+                        Close
+                    </Button>
+                </FormControl>
+            </div>
         </React.Fragment>
     )
 }
