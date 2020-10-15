@@ -85,7 +85,7 @@ function App() {
 
         <div>
           <div className="ContentHeader">
-            Welcome to Friends Accounting Services
+            <h3>Welcome to Friends Accounting Services</h3>
           </div>
 
           <div className="SubcontentHeader">
@@ -103,14 +103,6 @@ function App() {
           </Button>
         </div>
         
-
-        {/* <div className="CompanyHeader">
-        <div className="Main-header">
-                Friends Accounting Services
-                <img src={handshake} className="App-logo" alt="logo" />
-            </div>
-            
-        </div> */}
         <div className="Socials">
           {/* <div hidden={emailFlag} className={classes.formControl}>
             <TextField

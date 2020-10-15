@@ -45,13 +45,14 @@
 
 .ContentHeader {
   display: flex;
-  margin-top: 23vh;
+  margin-top: 15vh;
   justify-content: center;
   align-items: center;
   font-family: 'Roboto', sans-serif;
   font-variant: small-caps;
   font-size: calc(27px + 2vmin);
   color: white;
+  background-color: rgba(2, 1, 1, 0.7);
 }
 
 .SubcontentHeader {
@@ -65,6 +66,7 @@
   font-size: calc(10px + 2vmin);
   text-align: center;
   color: white;
+  background-color: rgba(2, 1, 1, 0.7);
 }
 
 .ContentButton {
@@ -79,8 +81,9 @@
 
 .Socials {
   min-height: 5vh;
-  margin-top:28vh;
+  margin-top: 22vh;
   margin-right: 2vh;
+  /* margin-right: 2vh; */
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
